@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>Room Picture</th>
+                <th>Property details</th>
+                <th>Property description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for listing in avail_listings %}
+            <tr>
+                <td target="_blank"> {{ listing["roompicture"] }} </td>
+
+                 <td style="width:100px">
+
+                     <ul style="list-style-type:none">
+                       <li> {{ listing["address"] }}</li>
+                       <li>Size : {{ listing["roomsize"] }} ft </li>
+                       <li>rent per day usd {{ listing["rentperday"] }}</li>
+                     </ul>
+                </td>
+
+
+                <td target="_blank"> {{ listing["propertydescription"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
